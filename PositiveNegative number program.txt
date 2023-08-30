@@ -1,0 +1,23 @@
+package javaintro;
+
+public class PositiveNegative {
+//java program to check wthether a number is positive or negative
+	
+	public static void main(String[] args) {
+		
+		int num=-3;
+		if(num>0) {
+			System.out.println(num + " is positive number.");
+		}
+		else if(num<0) {
+			System.out.println(num + " is negative number.");
+		}
+		else {
+			System.out.println(num + " is a zero.");
+		}
+		
+		
+
+	}
+
+}
