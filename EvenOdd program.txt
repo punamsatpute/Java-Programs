@@ -1,0 +1,19 @@
+package javaintro;
+
+public class EvenOdd {
+//java program check whether a number is odd or even
+	public static void main(String[] args) {
+		int num=20;
+		if(num%20==0) {
+			System.out.println(num + "number is even");
+			}
+		else {
+			System.out.println(num + "number is odd");
+		}
+		System.out.println("END");
+		
+		
+
+	}
+
+}
