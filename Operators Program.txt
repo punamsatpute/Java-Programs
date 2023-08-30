@@ -1,0 +1,22 @@
+package javaintro;
+
+public class Conditionalsatement {
+
+	public static void main(String[] args) {
+		int a=5;         //Assignment operator
+		int b=8;
+		int min=(a<b)?a:b;     //Ternary operator
+		System.out.println(min);
+		
+		a+=10;
+		System.out.println("a="+a);
+		b-=20;
+		System.out.println("b="+b);
+		b/=30;
+		System.out.println("b="+b);
+		min*=40;
+		System.out.println("min="+min);    //complex operator
+		
+		
+		
+		
