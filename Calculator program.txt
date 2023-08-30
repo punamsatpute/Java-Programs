@@ -1,0 +1,27 @@
+package javaintro;
+
+public class calculator {
+//Java program to make asimple calculator using switch...case
+	public static void main(String[] args) {
+		int cal1=10;
+		int cal2=50;
+		int userchoice=4;
+		switch(userchoice) {
+				
+		case 1:System.out.println(cal1 +cal2);
+		break;
+		case 2:System.out.println(cal1-cal2);
+		break;
+		case 3:System.out.println(cal1*cal2);
+		break;
+		case 4:System.out.println(cal1/cal2);
+		break;
+		default:System.out.println("error");
+		break;
+	
+		
+}
+
+	}
+
+}
