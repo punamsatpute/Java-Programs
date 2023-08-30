@@ -1,0 +1,18 @@
+package javaintro;
+
+public class NestedifElse {
+
+	public static void main(String[] args) {
+		int marks=80;
+		int age=18;
+		if(marks>80) {
+			System.out.println("Eligible for admission");  
+		}
+		 if(age>=18) {
+			System.out.println("eligible to persue forMBA");
+			
+		}
+
+	}
+
+}
