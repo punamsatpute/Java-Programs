@@ -1,0 +1,23 @@
+package javaintro;
+
+public class GreaterNumber {
+//java program to find the largest among three numbers
+	public static void main(String[] args) {
+		int n1=10;
+		int n2=30;
+		int n3=20;
+		if(n1>=20 && n1>=30) {
+			System.out.println("n1 is largest number");
+		}
+		else if(n2>=10 && n2>=30) {
+			System.out.println("n2 is largest number");
+		}
+		else {
+			System.out.println("n3 is largest number");
+			
+		}
+		
+
+	}
+
+}
