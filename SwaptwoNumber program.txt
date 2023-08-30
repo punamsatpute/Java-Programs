@@ -1,0 +1,27 @@
+package javaintro;
+
+public class SwaptwoNumber {
+//java program swap two numbers
+	
+	public static void main(String[] args) {
+		int x = 90,y = 100;
+		System.out.println("before swaping");
+		System.out.println("x="+x);
+		System.out.println("y="+y);
+		
+		//after swaping
+		int temp=x;
+		x=y;
+		y=temp;
+		
+		System.out.println("after swaing");
+		System.out.println("x="+x);
+		System.out.println("y="+y);
+		
+		
+		
+		
+
+	}
+
+}
