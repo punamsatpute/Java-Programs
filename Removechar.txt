@@ -1,0 +1,11 @@
+package String;
+// remove a particular character from a String.
+
+public class RemoveChar {
+
+	public static void main(String[] args) {
+		String str="welcomme to my home ";
+		System.out.println("String after removing all the 'm's = "+str.replace("m", ""));
+	}
+
+}
