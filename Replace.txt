@@ -1,0 +1,17 @@
+package String;
+// java program to reverse each word in string.
+
+public class Replace {
+
+	public static void main(String[] args) {
+		String str1="Apple";
+		str1=str1.replace("A","M");
+		System.out.println(str1); 
+		
+		String str2="Rose";
+		str2=str2.replace("R","T");
+		System.out.println(str2); 
+
+	}
+
+}
