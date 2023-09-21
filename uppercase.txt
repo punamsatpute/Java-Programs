@@ -1,0 +1,16 @@
+package String;
+//Java Program to capitalize each word in String
+
+public class uppercase {
+
+	public static void main(String[] args) {
+		String s2="apple";
+		s2=s2.toUpperCase();
+		System.out.println(s2);
+		String s3="how beautiful it is";
+		s3=s3.toUpperCase();
+		System.out.println(s3);
+
+	}
+
+}
