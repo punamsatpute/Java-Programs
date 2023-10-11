@@ -1,0 +1,15 @@
+package regexDemo;
+
+import java.util.regex.Pattern;
+
+public class Example2 {
+
+	public static void main(String[] args) {
+		String content="This is punam " + "from anudip.com";
+		String pattern=".*anu.*";
+		boolean isMatch=Pattern.matches(content, pattern);
+		System.out.println("The text contain'Book'?" + isMatch);
+
+	}
+
+}
