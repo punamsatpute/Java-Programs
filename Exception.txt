@@ -1,0 +1,23 @@
+package practice;
+
+public class Exception {
+	void method1() {
+		int a=50/0;
+	}
+	void method2() {
+		method1();
+	}
+	void method3() {
+			method2();
+		
+	}
+
+	public static void main(String[] args) {
+		Exception ae=new Exception();
+		ae.method3();
+		System.out.println("other code");
+		
+
+	}
+
+}
