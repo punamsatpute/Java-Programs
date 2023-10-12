@@ -1,0 +1,42 @@
+package Collection;
+
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.LinkedHashSet;
+
+public class Setclass2 {
+//LinkedHashSet
+	public static void main(String[] args) {
+		LinkedHashSet lh1=new LinkedHashSet();
+		lh1.add("punam");
+		lh1.add("sakshi");
+		lh1.add("dhanshri");
+		lh1.add(43);
+		lh1.add(null);
+		lh1.add(3.6F);
+		lh1.add(null);
+		lh1.add(76L);
+		lh1.add(43);
+		System.out.println(lh1);
+		LinkedHashSet<Integer> lh2=new LinkedHashSet<>();
+		lh2.add(500);
+		lh2.add(300);
+		lh2.add(400);
+		lh2.add(600);
+		lh2.add(800);
+		lh2.add(900);
+		lh2.add(null);
+		System.out.println(lh2);
+		System.out.println(lh2.spliterator());
+		lh2.addAll( lh2);
+		lh2.add(89);
+		Iterator it=lh2.iterator();
+		System.out.println("LinkedHashSet using iterator");
+		   while(it.hasNext()) {
+			   int a=(int)it.next();
+			   System.out.println(a);}
+		
+		
+	}
+
+}
