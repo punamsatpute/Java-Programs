@@ -1,0 +1,36 @@
+package Collection;
+
+import java.util.TreeMap;
+
+public class Mapclass3 {
+
+	public static void main(String[] args) {
+		TreeMap<Integer,Integer> tm=new TreeMap<>();
+		tm.put(1, 8907);
+		tm.put(2, null);
+		tm.put(3, 6547);
+		tm.put(4,4325);
+		tm.put(5, 9090);
+		tm.put(6, 6547);
+		System.out.println(tm);
+		System.out.println(tm.lastKey());
+		System.out.println(tm.lastEntry());
+	    System.out.println(tm.get(4));
+		System.out.println(tm.lastKey());
+		System.out.println(tm.firstKey());
+		System.out.println(tm.firstEntry());
+		System.out.println(tm.values());
+		System.out.println(tm.isEmpty());
+		System.out.println(tm.containsKey(2));
+		System.out.println(tm.containsValue(8907));
+		System.out.println(tm.pollFirstEntry());
+		System.out.println(tm.pollLastEntry());
+		System.out.println(tm.size());
+		System.out.println(tm.ceilingKey(5));
+		System.out.println(tm.get(3));
+	
+		
+		
+	}
+
+}
