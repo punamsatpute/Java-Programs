@@ -1,0 +1,24 @@
+package Collection;
+
+import java.util.Stack;
+
+public class Listclass4 {
+//stack
+	public static void main(String[] args) {
+		Stack<Integer> s1=new Stack<>();
+		s1.push(20);
+		s1.push(40);
+		s1.push(50);
+		s1.push(270);
+		s1.push(32);
+		s1.push(43);
+		System.out.println(s1);
+		System.out.println(s1.peek());
+		System.out.println(s1.pop());
+		System.out.println(s1.search(270));
+		System.out.println(s1);
+		
+
+	}
+
+}
