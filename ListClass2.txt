@@ -1,0 +1,29 @@
+package Collection;
+
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.ListIterator;
+
+public class Listclass2 {
+//LinkedList
+	public static void main(String[] args) {
+		LinkedList<String> list=new LinkedList<>();
+		list.add("welcome");
+		list.add("Apple");
+		list.add("Banana");
+		list.add("orange ");
+		list.add("mango");
+		list.add("red apple");
+		list.add("null");
+		System.out.println(list);
+		System.out.println(list.getFirst());
+		System.out.println(list.getLast());
+		System.out.println(list.get(4));
+		System.out.println(list.peekFirst());
+		System.out.println(list.peekLast());
+		System.out.println(list.clone());
+		System.out.println(list.element());
+		System.out.println(list.pollFirst());
+		System.out.println(list.pollLast());
+		
+	}
