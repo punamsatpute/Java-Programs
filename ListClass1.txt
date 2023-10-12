@@ -1,0 +1,66 @@
+package Collection;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.ListIterator;
+
+public class List {
+
+	public static void main(String[] args) {
+		ArrayList ar=new ArrayList();        //raw type
+		ar.add(10);
+		ar.add("punam");
+		ar.add(20);
+		ar.add(null);
+		ar.add(null);
+		ar.add(20);
+		System.out.println(ar);
+		
+		//Approach 2-generic
+		ArrayList<Integer> integer1=new ArrayList<>();
+		ArrayList<Integer> integer2=new ArrayList<>();
+		ArrayList<Integer> integer3=new ArrayList<>();
+		integer1.add(10);
+		integer1.add(30);
+		integer1.add(700);
+		integer2.add(90);
+		integer2.add(89);
+		integer2.add(800);
+		integer3.add(67);
+		integer3.add(45);
+		integer3.add(900);
+		System.out.println(integer1.size());
+		System.out.println(integer1.isEmpty());
+		System.out.println(integer1.hashCode());
+		System.out.println(integer1.equals(integer3));
+		System.out.println(integer1.contains(30));
+		System.out.println(integer1.contains(13));
+		System.out.println(integer1.containsAll(integer2));
+		System.out.println(integer1.remove(0));
+		System.out.println("integers1="+integer1);
+		integer1.removeAll(integer3);
+		integer2.clear();
+		System.out.println("****Iterating object in integer3 using for each loop****");
+		for(int i=0; i<integer3.size(); i++) {
+			System.out.println(i);
+			}
+		System.out.println("****Iterating object in integer3 using Iterator method****");
+		Iterator<Integer>iterator1= integer3.iterator();
+		while(iterator1.hasNext()) {
+			System.out.println(iterator1.next());
+		}
+		System.out.println("****Iterating object in integer3 using ListIterator(Forward) method****");
+		ListIterator<Integer> listIterator1 = integer3.listIterator();
+		while(listIterator1.hasNext()){
+		  System.out.println(listIterator1.next());
+		}
+		System.out.println("****Iterating object in integer3 using ListIterator(Backward) method****");
+		while(listIterator1.hasPrevious()){
+		  System.out.println(listIterator1.previous());
+		}
+		
+		
+		
+	}
+
+}
