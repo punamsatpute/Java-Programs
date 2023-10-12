@@ -1,0 +1,46 @@
+package Collection;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class MapClasshashmap {
+
+	public static void main(String[] args) {
+		HashMap map1=new HashMap();
+		map1.put(1,"Apple");
+		map1.put(2,"Banana");
+		map1.put(null,125);
+		map1.put(null,250);
+		map1.put(85,null);
+		map1.put(86,null);
+		map1.put(45,"punam");
+		System.out.println(map1);
+		
+		HashMap<Long,Integer> aadharMap=new HashMap<>();
+		aadharMap.put(1234568754L, 25);
+		aadharMap.put(1234568767L, 22);
+		aadharMap.put(1234568545L, 27);
+		aadharMap.put(1234568777L, 23);
+		aadharMap.put(12345684639L, 20);
+		System.out.println(aadharMap.size());
+		System.out.println(aadharMap.isEmpty());
+		System.out.println(aadharMap.containsKey(1234568754L));
+		System.out.println(aadharMap.containsValue(25));
+		//read only keys
+		System.out.println(aadharMap.keySet());
+		//read only values
+		System.out.println(aadharMap.entrySet());
+		//read values of a key
+		System.out.println(aadharMap.get(1234568777L));
+		//Iterable
+		for(Map.Entry<Long, Integer>me:aadharMap.entrySet()) {
+			System.out.println(me.getKey()+"-->"+me.getValue());
+		}
+		System.out.println(aadharMap.values());
+		System.out.println(aadharMap.isEmpty());
+		
+		
+		
+	}
+
+}
