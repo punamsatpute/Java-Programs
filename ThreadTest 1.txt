@@ -1,0 +1,18 @@
+package com.anudip.training.threaddemo.ThreadDemo;
+
+//by extending the thread
+
+public class Threadsample extends Thread{
+	public void run() {                                                                   //override the run method
+		System.out.println("program executed");
+	}
+
+	public static void main(String[] args) {
+		Threadsample thread1=new Threadsample();             //newly create thread
+		thread1.start();    // runnable state
+		
+		
+
+	}
+
+}
