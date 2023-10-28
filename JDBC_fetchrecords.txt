@@ -1,0 +1,45 @@
+package JDBCPro;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+public class JDBC_fetchrecords {
+
+	public static void main(String[] args) throws SQLException {
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		//STEP 2 ESTABLISH A CONNECTION JDBC API(COLLECTION OF INTERFACE AND CLASSES)
+		Connection con=null;
+		 try {
+			con=DriverManager.getConnection("jdbc:mysql://localhost:3306/mydb","root","root");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+             //STEP 3 CREATE A SQL STATEMENT
+		 Statement stmt=con.createStatement();
+		 //STEP 4 EXECUTE
+		 ResultSet rs=stmt.executeQuery("select * from teacher");
+		 int id;
+		 String name,sub;
+		 System.out.println("Teacher details");
+		 System.out.println("==================");
+		 while(rs.next()) {
+			 name=rs.getString(1);
+			 id=rs.getInt(2);
+			 sub=rs.getString(3);
+			
+			 System.out.println(name+" "+id+" "+sub);
+		 }
+		 con.close();
+
+	}
+
+}
