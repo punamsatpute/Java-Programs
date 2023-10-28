@@ -1,0 +1,48 @@
+package JDBCPro;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+
+public class JDBCTest4 {
+
+	public static void main(String[] args) throws ClassNotFoundException, SQLException  {
+		//register the driver
+				Class.forName("com.mysql.cj.jdbc.Driver");
+						
+				Connection con=DriverManager.getConnection("jdbc:mysql://localhost/mydb", "root", "root");
+				
+				Statement stmt = con.createStatement();
+				
+                String sql="update employee set designation ='sr.manager' where id=1";
+				
+                stmt.executeUpdate(sql);
+				
+				ResultSet rs= stmt.executeQuery("select * from employee");	
+				//System.out.println(rs);
+				int id;
+				String name = null,desig,dept;
+						
+				System.out.println("Employee details");
+				System.out.println("============");	
+				while(rs.next())
+				{
+					id=rs.getInt(1);
+					name=rs.getString(2);
+					desig=rs.getString(3);
+					dept=rs.getString(4);
+					
+					System.out.println(id+"  "+name+"  "+desig+"  "+dept);
+				}
+				con.close();
+		
+		
+		
+		
+		
+	}		
+}
