@@ -1,0 +1,132 @@
+package JDBCPro;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.Scanner;
+
+public class JDBCDemo1 {
+
+	public static void main(String[] args) throws SQLException, ClassNotFoundException {
+        
+		String name;
+		int rollnumber;
+		String branch;
+		String cource;
+		String sql;
+		Class.forName("com.mysql.cj.jdbc.Driver");
+		Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/mydb","root","root");
+	    Statement stmt=con.createStatement();
+	    ResultSet rs= stmt.executeQuery("select * from student");
+	    Scanner sc =new Scanner(System.in);
+		int i=0;
+		
+		int Userchoice=5;
+		
+		switch(Userchoice) {
+		case 1:
+			//execute statement
+			stmt.executeUpdate("insert into student values('Punam',52,'Elec','PLCSCADA')");
+			System.out.println("succefully store");
+			con.close();
+			break;
+			
+		case 2:
+			
+			 System.out.println("student details");
+			 System.out.println("==================");
+			 while(rs.next()) {
+				 name=rs.getString(1);
+				 rollnumber=rs.getInt(2);
+				 branch=rs.getString(3);
+				 cource=rs.getString(4);
+				 System.out.println(name+" "+rollnumber+" "+branch+" "+cource);
+			 }
+			 con.close();
+			 break;
+		case 3:
+			PreparedStatement pstmt = con.prepareStatement("insert into student values(?,?,?,?)");
+			
+			System.out.println("Enter the student name");
+			 name = sc.next();
+			
+			System.out.println("Enter the student rollnumber");
+		     rollnumber= sc.nextInt();
+			
+			System.out.println("Enter the student branch");
+		    branch= sc.next();
+			
+			System.out.println("Enter the student cource");
+			cource = sc.next();
+			
+			pstmt.setString(1,name);
+			pstmt.setInt(2,rollnumber);
+			pstmt.setString(3,branch);
+			pstmt.setString(4,cource);
+			
+			pstmt.executeUpdate();
+			con.close();
+			System.out.println(i +" student record added");
+			
+			break;
+			 
+		case 4:
+			
+			  sql="update student set cource='E&TC' where rollnumber=2";
+				
+             stmt.executeUpdate(sql);
+				
+				 rs= stmt.executeQuery("select * from student");	
+				//System.out.println(rs);
+				 name= null;
+				 
+				System.out.println("student details");
+				System.out.println("============");	
+				while(rs.next())
+				{
+					name =rs.getString(1);
+					rollnumber=rs.getInt(2);
+					branch=rs.getString(3);
+					cource=rs.getString(4);
+					
+					System.out.println(name+"  "+rollnumber+"  "+branch+"  "+cource);
+				}
+				con.close();
+				break;
+		case 5:
+			 sql="delete from student where rollnumber=52";
+			 stmt.executeUpdate(sql);
+				
+				rs= stmt.executeQuery("select * from student");	
+				//System.out.println(rs);
+				 name= null;
+				System.out.println("student details");
+				System.out.println("============");	
+				while(rs.next())
+				{
+					name =rs.getString(1);
+					rollnumber=rs.getInt(2);
+					branch=rs.getString(3);
+					cource=rs.getString(4);
+					
+					System.out.println(name+"  "+rollnumber+"  "+branch+"  "+cource);
+				}
+				
+			 con.close();
+			 break;
+			 
+		
+		
+		
+		
+		}		
+		
+		
+	
+
+	}
+
+}
