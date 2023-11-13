@@ -1,0 +1,102 @@
+package com.junitDemo;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Student {
+	private String name;
+	private int rollNumber;
+	private String branch;
+	public Student(String name, int rollNumber, String branch) {
+		super();
+		this.name = name;
+		this.rollNumber = rollNumber;
+		this.branch = branch;
+	}
+	@Override
+	public boolean equals(Object obj) {
+		Student std=(Student) obj;
+		boolean status=false;
+		if(this.name.equalsIgnoreCase(std.name)
+			&& this.rollNumber==std.rollNumber
+			&& this.branch == std.branch) 
+           {
+				status=true;
+			}
+		return status;
+			}
+	public static List<Student>getStudentList(){
+		List<Student>stds=new ArrayList<Student>();
+		Student std1=new Student("Sakshi",1,"IT");
+		Student std2=new Student("Radhika",2,"IT");
+		Student std3=new Student("Punam",3,"IT");
+		
+		stds.add(std1);
+		stds.add(std2);
+		stds.add(std3);
+		
+		return stds;
+		
+		}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public int getRollNumber() {
+		return rollNumber;
+	}
+	public void setRollNumber(int rollNumber) {
+		this.rollNumber = rollNumber;
+	}
+	public String getBranch() {
+		return branch;
+	}
+	public void setBranch(String branch) {
+		this.branch = branch;
+	}
+	
+	
+
+}
+//Teast case-
+package com.junitDemo;
+
+import static org.junit.Assert.*;
+
+import org.junit.After;
+import org.junit.AfterClass;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
+
+public class StudentTest {
+    Object[] expectedStds=new Object[3];
+	@BeforeClass
+	public static void setUpBeforeClass() throws Exception {
+	}
+
+	@AfterClass
+	public static void tearDownAfterClass() throws Exception {
+	}
+
+	@Before
+	public void setUp() throws Exception {
+		expectedStds[0]=new Student("Sakshi", 1,"IT");
+		expectedStds[1]=new Student("Radhika", 2,"IT");
+		expectedStds[2]=new Student("Punam", 3,"IT");
+		
+	}
+
+	@After
+	public void tearDown() throws Exception {
+	}
+
+	@Test
+	public void test() {
+		Object[] testOutput=Student.getStudentList().toArray();
+		assertArrayEquals(expectedStds,testOutput);
+	}
+
+}
