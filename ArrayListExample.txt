@@ -1,0 +1,39 @@
+package com.anudip.collection;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+
+public class ArrayListStringEx {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		 ArrayList<String> stringList = new ArrayList<>();
+	        stringList.add("Hello");
+	        stringList.add("World");
+	        stringList.add("Java");
+	        stringList.add("Programming");
+
+	        // Task 1: Iterate through the ArrayList and print each string with its length
+	        System.out.println("Strings with their lengths:");
+	        for (String str : stringList) {
+	            System.out.println("String: " + str + ", Length: " + str.length());
+	        }
+
+	        // Task 2: Remove strings with length less than or equal to 3
+	        Iterator<String> iterator = stringList.iterator();
+	        while (iterator.hasNext()) {
+	            String str = iterator.next();
+	            if (str.length() <= 3) {
+	                iterator.remove();
+	            }
+	        }
+
+	        // Task 3: Print the modified ArrayList
+	        System.out.println("\nModified ArrayList after removing strings with length less than or equal to 3:");
+	        System.out.println(stringList);
+	    }
+
+	    	
+	
+
+}
