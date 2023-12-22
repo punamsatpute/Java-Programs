@@ -1,0 +1,157 @@
+HibernateCrud
+
+import javax.persistence.*;
+
+@Entity
+@Table(name = "employees")
+public class Employee {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    private Long id;
+
+    @Column(name = "name")
+    private String name;
+
+    @Column(name = "position")
+    private String position;
+
+    @Column(name = "salary")
+    private double salary;
+
+    // Constructors, getters, setters, etc.
+    
+    // Constructor
+    public Employee() {
+        // Default constructor required by Hibernate
+    }
+
+    public Employee(String name, String position, double salary) {
+        this.name = name;
+        this.position = position;
+        this.salary = salary;
+    }
+
+   
+    // toString method for printing Employee details
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", position='" + position + '\'' +
+                ", salary=" + salary +
+                '}';
+    }
+}
+
+
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
+
+public class HibernateCRUDExample {
+
+    private static SessionFactory sessionFactory;
+
+    public static void main(String[] args) {
+        try {
+            // Create a Hibernate configuration instance and configure
+            Configuration configuration = new Configuration().configure();
+            configuration.addAnnotatedClass(Employee.class);
+
+            // Create SessionFactory
+            sessionFactory = configuration.buildSessionFactory();
+
+            // Create
+            Employee newEmployee = new Employee("John Doe", "Software Developer", 50000);
+            Long createdEmployeeId = createEmployee(newEmployee);
+            System.out.println("New Employee ID: " + createdEmployeeId);
+
+            // Read
+            Employee retrievedEmployee = readEmployee(createdEmployeeId);
+            System.out.println("Retrieved Employee: " + retrievedEmployee);
+
+            // Update
+            retrievedEmployee.setPosition("Senior Developer");
+            updateEmployee(retrievedEmployee);
+
+            // Read updated employee
+            Employee updatedEmployee = readEmployee(createdEmployeeId);
+            System.out.println("Updated Employee: " + updatedEmployee);
+
+            // Delete
+            deleteEmployee(updatedEmployee);
+        } finally {
+            if (sessionFactory != null) {
+                sessionFactory.close();
+            }
+        }
+    }
+
+    private static Long createEmployee(Employee employee) {
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.beginTransaction();
+        Long id = null;
+        try {
+            id = (Long) session.save(employee);
+            transaction.commit();
+        } catch (Exception e) {
+            if (transaction != null) {
+                transaction.rollback();
+            }
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+        return id;
+    }
+
+    private static Employee readEmployee(Long employeeId) {
+        Session session = sessionFactory.openSession();
+        Employee employee = null;
+        try {
+            employee = session.get(Employee.class, employeeId);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+        return employee;
+    }
+
+    private static void updateEmployee(Employee employee) {
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.beginTransaction();
+        try {
+            session.update(employee);
+            transaction.commit();
+        } catch (Exception e) {
+            if (transaction != null) {
+                transaction.rollback();
+            }
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+    }
+
+    private static void deleteEmployee(Employee employee) {
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.beginTransaction();
+        try {
+            session.delete(employee);
+            transaction.commit();
+        } catch (Exception e) {
+            if (transaction != null) {
+                transaction.rollback();
+            }
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+    }
+}
+
